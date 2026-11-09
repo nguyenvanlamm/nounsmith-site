@@ -1,0 +1,17 @@
+# Nounsmith
+
+> Nounsmith is a word-riddle game for iPhone, coming soon to the App Store. Each page is a plate: a riddle sentence set in wood type above a two-colour printed picture, and the words and the things trade places.
+
+- Make: drag a word from the sentence into the picture and the thing appears there (RAIN on the sky, and it rains on the garden).
+- Take: drag a thing from the picture up into a gap in the sentence and it is gone from the picture.
+- Respell: drop a loose letter on a word and the thing changes with it (a G on BOAT makes a GOAT). From the third chapter a letter can also be slipped in or pulled out.
+- A wrong word goes wrong (an Oops: the cat gets soaked); an Eraser takes the move back. A Quill outlines the next move. No timer, no lives.
+- 40 hand-made pages in four chapters: The Cottage (free), The Harbour, The Market, The Lighthouse.
+- One one-time purchase, The Whole Book, opens chapters 2 to 4 and adds five Quills; an optional consumable pack, Inkwell, holds 12 Quills and 6 Erasers. No ads, no analytics, no tracking, no account; plays offline. English.
+- Made by Luong Nguyen.
+
+## Pages
+
+- [Home](https://nguyenvanlamm.github.io/nounsmith-site/): what the game is, before and after screenshots, how it plays, price, questions
+- [Privacy Policy](https://nguyenvanlamm.github.io/nounsmith-site/privacy.html): the game collects no data; progress and purchases stay on the device
+- [Support](https://nguyenvanlamm.github.io/nounsmith-site/support.html): contact, how to play, purchases and Restore purchases
