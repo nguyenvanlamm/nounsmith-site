@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nounsmith: word riddles where words become things</title>
+<meta name="description" content="An iPhone riddle book. Drag a word into the picture and it becomes real; respell BOAT to GOAT and the boat turns into a goat.">
+<link rel="canonical" href="https://nguyenvanlamm.github.io/nounsmith-site/">
+<meta name="theme-color" content="#F6F6F3">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nounsmith">
+<meta property="og:title" content="Nounsmith: word riddles where words become things">
+<meta property="og:description" content="An iPhone riddle book of 40 printed plates. Drag a word into the picture and it becomes real. Coming soon to the App Store.">
+<meta property="og:url" content="https://nguyenvanlamm.github.io/nounsmith-site/">
+<meta property="og:image" content="https://nguyenvanlamm.github.io/nounsmith-site/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Nounsmith icon beside three screens of the game: the list of plates, a harbour plate and a solved page">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame","name":"Nounsmith","url":"https://nguyenvanlamm.github.io/nounsmith-site/","image":"https://nguyenvanlamm.github.io/nounsmith-site/assets/og-card.png","description":"An iPhone riddle book: each page is a sentence set in wood type above a printed picture. Drag a word into the picture and it becomes real, drag a thing into the sentence and it is gone, or respell a word to change the thing. 40 pages in four chapters; The Cottage is free.","genre":["Puzzle","Word game"],"gamePlatform":"iPhone","operatingSystem":"iOS","applicationCategory":"GameApplication","inLanguage":"en","numberOfPlayers":{"@type":"QuantitativeValue","value":1},"playMode":"SinglePlayer"}
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Coustard:wght@900&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F6F6F3; --backdrop: #E6E6E2; --ink: #0A5A96; --blue: #0078BF; --pink: #FF48B0; --indigo: #2A2380;
+    --wood: "Coustard", Georgia, serif; --fell: "IM Fell English", Georgia, serif; --caps: "IM Fell English SC", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--backdrop); color: var(--ink); font: 19px/1.55 var(--fell); }
+  .sheet { max-width: 980px; margin: 24px auto; background: var(--paper); border: 1.5px solid var(--ink);
+    outline: 1px solid var(--ink); outline-offset: -7px; padding: 40px 28px 56px; position: relative; }
+  .sheet::before, .sheet::after { content: "✦"; position: absolute; color: var(--pink); font-size: 22px; top: -14px; }
+  .sheet::before { left: -9px; } .sheet::after { right: -9px; }
+  .caps { font-family: var(--caps); letter-spacing: .18em; font-size: 15px; }
+  .rule { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 40px 0 18px; }
+  .rule::before, .rule::after { content: ""; height: 1px; background: var(--ink); flex: 1; max-width: 220px; }
+  header { text-align: center; }
+  header img { width: 112px; height: 112px; border: 1.5px solid var(--ink); }
+  h1 { font: 900 clamp(46px, 9vw, 84px)/1 var(--wood); color: var(--blue); margin: 14px 0 6px;
+    text-shadow: 3px 3px 0 var(--pink); letter-spacing: -.01em; }
+  .tag { font-style: italic; font-size: 22px; margin: 0; }
+  .hero { font: 900 clamp(28px, 5vw, 42px)/1.15 var(--wood); color: var(--blue); text-align: center; margin: 34px auto 10px; max-width: 760px; }
+  .tile { background: var(--pink); color: var(--indigo); padding: 0 .18em; box-shadow: 3px 3px 0 var(--blue); }
+  .lede { text-align: center; max-width: 640px; margin: 0 auto; }
+  .trust { text-align: center; margin: 18px 0 0; }
+  .cta { display: inline-block; margin-top: 22px; padding: 12px 26px; border: 1.5px solid var(--ink); outline: 1px solid var(--ink);
+    outline-offset: -5px; color: var(--ink); text-decoration: none; font-family: var(--caps); letter-spacing: .14em; font-size: 16px; }
+  .cta::before { content: "✳ "; color: var(--pink); }
+  .cta:hover, .cta:focus-visible { background: var(--ink); color: var(--paper); }
+  .shots { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin: 38px 0 6px; }
+  figure { margin: 0; text-align: center; }
+  figure img { width: 250px; max-width: 78vw; height: auto; border: 1.5px solid var(--ink); display: block; }
+  figcaption { font-style: italic; font-size: 16px; margin-top: 6px; }
+  .verbs, .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .card { border: 1px solid var(--ink); outline: 1px solid var(--ink); outline-offset: -5px; padding: 18px 20px; }
+  .card h3 { font: 900 24px/1.2 var(--wood); color: var(--blue); margin: 0 0 6px; }
+  .card p { margin: 0; }
+  .num { font-family: var(--wood); color: var(--pink); font-size: 30px; line-height: 1; }
+  .center { text-align: center; max-width: 680px; margin: 0 auto; }
+  dl { max-width: 680px; margin: 0 auto; } dt { font-family: var(--caps); letter-spacing: .1em; margin-top: 16px; } dd { margin: 2px 0 0; }
+  footer { text-align: center; margin-top: 46px; font-size: 16px; }
+  a { color: var(--ink); }
+  @media (max-width: 520px) { .sheet { margin: 10px; padding: 32px 16px 44px; } body { font-size: 18px; } }
+</style>
+</head>
+<body>
+<div class="sheet">
+<header>
+  <p class="caps">A Riddle Book in Four Chapters</p>
+  <img src="assets/icon-320.webp" alt="The Nounsmith icon" width="112" height="112">
+  <h1>Nounsmith</h1>
+  <p class="tag">or, Words That Become Things</p>
+</header>
+
+<main>
+  <p class="hero">Drag a word in. It becomes <span class="tile">REAL</span>.</p>
+  <p class="lede">Nounsmith is a book of 40 word riddles for iPhone. Each page is a sentence set in wood type above a printed picture, and the words and the things trade places.</p>
+  <p class="trust caps">No ads · No tracking · No timers · Plays offline</p>
+  <p class="center"><a class="cta" href="mailto:lamnv260398@gmail.com?subject=Nounsmith">Join the launch list</a></p>
+
+  <div class="shots">
+    <figure><img src="assets/shot-home.webp" alt="The list of plates: chapter one, The Cottage, as a dial of ten numbered plates" width="390" height="844" loading="lazy"><figcaption>The list of plates</figcaption></figure>
+    <figure><img src="assets/shot-goat.webp" alt="A harbour plate: Only a goat could mow this hill, and all we have is a BOAT, above a picture of the sea, a hill and a sailing boat" width="390" height="844" loading="lazy"><figcaption>A plate of The Harbour</figcaption></figure>
+    <figure><img src="assets/shot-won.webp" alt="A solved page with the line So it is." width="390" height="844" loading="lazy"><figcaption>So it is.</figcaption></figure>
+  </div>
+
+  <p class="rule caps">Three Ways to Change a Page</p>
+  <div class="verbs">
+    <div class="card"><h3>Make</h3><p>Drag RAIN from the sentence onto the sky, and it rains on the garden.</p></div>
+    <div class="card"><h3>Take</h3><p>Drag the tree from the picture up into the gap in the sentence, and the tree is gone.</p></div>
+    <div class="card"><h3>Respell</h3><p>Drop a G on BOAT. Now it is a GOAT, standing where the boat was.</p></div>
+  </div>
+
+  <p class="rule caps">On Every Plate</p>
+  <div class="verbs">
+    <div class="card"><h3>Oops</h3><p>A wrong word goes wrong: the kite blows away, the ship follows the moon onto the rocks. An Eraser takes the move back.</p></div>
+    <div class="card"><h3>The Quill</h3><p>Stuck? The Quill points at the next word to move and where it goes.</p></div>
+    <div class="card"><h3>Forty Plates</h3><p>Hand-made pages in four chapters: The Cottage, The Harbour, The Market, The Lighthouse.</p></div>
+  </div>
+
+  <p class="rule caps">How It Plays</p>
+  <div class="steps">
+    <div class="card"><span class="num">I</span><p>Read the riddle sentence under the plate number.</p></div>
+    <div class="card"><span class="num">II</span><p>Drag a word into the picture, a thing into the sentence, or a letter onto a word.</p></div>
+    <div class="card"><span class="num">III</span><p>The page comes true: <em>So it is.</em></p></div>
+  </div>
+
+  <p class="rule caps">The Price</p>
+  <p class="center">The Cottage (10 pages) is free. <strong>The Whole Book</strong> opens the other three chapters for $2.99, once. An <strong>Inkwell</strong> of 12 Quills and 6 Erasers is $1.99. Prices may vary by country.</p>
+
+  <p class="rule caps">Questions</p>
+  <dl>
+    <dt>Is there a timer or lives?</dt><dd>No. Take as long as a page needs.</dd>
+    <dt>Does it show ads or track me?</dt><dd>No ads, no analytics, no account. Progress stays on your iPhone.</dd>
+    <dt>Do I need to buy hints?</dt><dd>No. You start with Quills and Erasers and find more as you solve pages; the Inkwell is optional.</dd>
+    <dt>When is it out?</dt><dd>Nounsmith is coming soon to the App Store for iPhone.</dd>
+  </dl>
+
+  <p class="rule caps">Coming Soon</p>
+  <p class="center">The first chapter is free.<br><a class="cta" href="mailto:lamnv260398@gmail.com?subject=Nounsmith">Ask to hear at launch</a></p>
+</main>
+
+<footer>
+  <p><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a></p>
+  <p class="caps">Nounsmith · 2026</p>
+</footer>
+</div>
+</body>
+</html>
